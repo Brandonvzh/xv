@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div>
+        <div class="container-hero">
+            <p> 
+                <span class> El rey y la reina: </span>
+                <br></br> 
+                <span class = "span-names"> Rodolfo Belmares Rivera y Brenda Magaly Bustos González </span>
+                <br></br> 
+                <span> Tienen el gusto de invitarlos a la celebración de 15 años de su hija para que juntos <br> podamos compartir su momento tan especial </span> 
+            </p>
+        </div>
+        <h1 class="h1-hero"> Regina Lizbeth </h1>
+        <div id = "target1" class = "scroll-target">
+            <p class = "p-hero">
+                <span id = "demo" class = "span-timer"> </span>
+                <br></br>
+                <span class = "span-fecha"> Fecha 06 de agosto del 2023 </span>
+            </p>
+        </div>
+    </div>
+
+    <div id = "target2" class = "scroll-target">
+        <h1 class ="h1-locations"> Ubicaciones </h1>
+        <div class = "grid-container">
+            <div class = "grid-item">
+                <h2 key = "" class = "h2-grid-item"> Misa </h2>
+                <div>
+                    <a href = "https://goo.gl/maps/nq9f6MuJh6BQ1noX9">
+                    <img class = "img-location" src = "{% static 'img/Parroquia.png' %}" />
+                    </a>
+                    <br></br>
+                    {% comment %} <a class = "button-location" href = "https://goo.gl/maps/nq9f6MuJh6BQ1noX9"> Google Maps </a> {% endcomment %}
+                    <p>
+                        <h2 class = "h2-grid-item"> Parroquia Santisima Trinidad </h2>
+                        Hora: 4:30 P.M.
+                        <br></br>
+                        Flor de Belén 454, Villas de San Juan, 67256, Juárez, N.L.
+                    </p>
+                </div>
+            </div>
+
+            <div class = "grid-item">
+                <h2 key = "" class = "h2-grid-item"> Recepción </h2>
+                <div>
+                    <a href = "https://goo.gl/maps/zuHDiJuXSYLqdRYQ8">
+                    <img class = "img-location" src = "{% static 'img/Salon.png' %}" />
+                    </a>
+                    <br></br>
+                    <p>
+                        <h2 class = "h2-grid-item"> Emporio Eventos </h2>
+                        Hora: 7:00 P.M.
+                        <br></br>
+                        Av. Guadalajara 428, Hacienda de San Miguel, 67113, Guadalupe, N.L.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id = "target3" class = "scroll-target">
+        <h1 class = "h1-guests"> Asistencia </h1>
+        <p class = "p-guests"> Ingresar nombre de asistente (s) </p>
+        <form method = "POST" class = "form-guests">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class = "button-submit-guests">Confirmar</button>
+        </form>
+    </div>
+
+    <div>
+        <h2 class = "h2-guests"> Esperamos contar con tu presencia. </h2>
+    </div>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Aug 6, 2023 16:30:00").getTime();
+    
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+    
+            // Get today's date and time
+            var now = new Date().getTime();
+            
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+                
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+        window.addEventListener('scroll', function() {
+            // Get the position of each target element relative to the top of the page
+            const targetElements = document.getElementsByClassName('scroll-target');
+            const windowHeight = window.innerHeight;
+      
+            // Iterate through each target element
+            for (let i = 0; i < targetElements.length; i++) {
+              const targetElement = targetElements[i];
+              const targetPosition = targetElement.getBoundingClientRect().top;
+      
+              // Check if the target element is in the viewport
+              if (targetPosition < windowHeight) {
+                // Scroll to the target element
+                window.scrollTo({
+                  top: targetPosition + window.pageYOffset,
+                  behavior: 'smooth' // Use smooth scrolling animation
+                });
+              }
+            }
+        });
+    </script>
+
+{% endblock content %}
+
+
+
+
