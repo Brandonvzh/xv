@@ -31,8 +31,8 @@ print(f'Base dir: {BASE_DIR}')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'l5&5c$=23uv!x6)5=x6i7)a)yvkp9t(*xsf)0n8m+c%3)dk+si')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+# DEBUG = False
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = []
 
