@@ -233,7 +233,6 @@ body {
 .img-location {
     width: 100%;
     /* height: 250px; */
-    /* background: url("img/"); */
     border-radius: 23px;
 }
 
@@ -546,7 +545,6 @@ body {
     .img-location {
         width: 420px;
         height: 250px;
-        /* background: url(image.png); */
         border-radius: 23px;
     }
     
