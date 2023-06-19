@@ -87,15 +87,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
                 'ENGINE': 'django_psdb_engine',
-                'NAME': 'personal',
+                'NAME': 'personal_use',
                 'HOST': 'aws.connect.psdb.cloud',
                 'PORT': '3306',
-                'USER': 'u4hm3nejip50qeawdj9r',
-                'PASSWORD': 'pscale_pw_QWyAHqg2OQOCaRHSU6k9yJidQxzXb35IqIwYiQ1bybA',
+                'USER': 'i5pveqswdvp9xy364bwh',
+                'PASSWORD': 'pscale_pw_4PfxpuTu7oFnDNBH9Mkw1OHSVXvuBguEBxVVuRq2O3b',
                 'OPTIONS': {'ssl': {'ca':'/etc/ssl/certs/ca-certificates.crt'}}
                 }
 }
-DATABASES['default'].update(db_from_env)
+# DATABASES['default'].update(db_from_env)
 
 
 # Password validation
