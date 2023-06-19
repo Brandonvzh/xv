@@ -86,9 +86,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+                'ENGINE': 'django_psdb_engine',
+                'NAME': 'personal',
+                'HOST': 'aws.connect.psdb.cloud',
+                'PORT': '3306',
+                'USER': 'u4hm3nejip50qeawdj9r',
+                'PASSWORD': 'pscale_pw_QWyAHqg2OQOCaRHSU6k9yJidQxzXb35IqIwYiQ1bybA',
+                'OPTIONS': {'ssl': {'ca':'/etc/ssl/certs/ca-certificates.crt'}}
+                }
 }
 DATABASES['default'].update(db_from_env)
 
